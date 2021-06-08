@@ -1,4 +1,4 @@
-package jp.co.aforce.action;
+package jp.co.aforce.act;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,32 +18,34 @@ public class LoginAction extends Action {
 	) throws Exception {
 
 		HttpSession session = request.getSession();
-
+		
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
 		CustomerDAO dao = new CustomerDAO();
+		System.out.println("Login-Action1");
 		Customer customer = dao.search(login, password);
+		System.out.println("Login-Action2");
 
 		if (customer != null) {
 
 			session.setAttribute("customer", customer);
-			return "../jsp/login-out.jsp";
+			return "/jsp/login-out.jsp";
 
 		}
 
-		return "../jsp/login-error.jsp";
+		return "/jsp/login-error.jsp";
 
 	}
 
 }
-
+//@WebServlet(urlPatterns = { "/src/login-action" })
 //public class LoginAction extends HttpServlet {
 //
 //	public void doPost(
 //			
 //			HttpServletRequest request, HttpServletResponse response
 //				
-//		)throws ServletException, IOException{ 
+//		)throws Exception{ 
 //
 //		HttpSession session = request.getSession();
 //		response.setContentType("text/html; charset=UTF-8");	
@@ -52,7 +54,13 @@ public class LoginAction extends Action {
 //		String login = request.getParameter("login");
 //		String password = request.getParameter("password");
 //		CustomerDAO dao = new CustomerDAO();
-//		Customer customer = dao.search(login, password);
+//		Customer customer = new Customer();
+//		
+//		customer = dao.search(login, password);
+//			
+//		
+//		System.out.println(e.getMessage());
+//			
 //
 //		if (customer != null) {
 //
@@ -61,11 +69,12 @@ public class LoginAction extends Action {
 //
 //		}else {
 //		
-//		request.getRequestDispatcher("../jsp/login-error.jsp\"")
+//		request.getRequestDispatcher("../jsp/login-error.jsp")
 //		.include(request, response);
-//		 
-//
+//		
 //		}
 //	}
+//	
+//}
 //
 //}

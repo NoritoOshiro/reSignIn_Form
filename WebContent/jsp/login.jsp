@@ -5,7 +5,9 @@
 
 <div class="form-wrapper">
     <h1>Sign In</h1>
-    <form action="../Login.action" method="post">
+    <form action="../jp.co.aforce.act/Login.action" method="post">
+    <!-- "../jp.co.aforce.act/Login.action" -->
+   <!--  ../src/login-action -->
       <div class="form-item">
         <label for="ログイン名"></label>
         <input type="text" name="login" required="required" placeholder="ログイン名を入力して下さい。"></input>

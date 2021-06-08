@@ -12,11 +12,11 @@ public class CustomerDAO extends DAO{
 	
 	throws Exception{
 		
+		
 		Customer customer=null;
-		
-		
-		Connection con=getConnection();
-		
+		System.out.println("connection-in");
+		Connection con = getConnection();
+		System.out.println("connection-out");
 		PreparedStatement st;
 		
 		st=con.prepareStatement(

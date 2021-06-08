@@ -3,6 +3,6 @@
 <%@include file="../header.html" %>
 <link rel="Stylesheet" href="${pageContext.request.contextPath}/jsp/login.css" />
 
-こんにちは、{customer.login}さん。
+こんにちは、${customer.login}さん。
 
 <%@include file="../footer.html" %>

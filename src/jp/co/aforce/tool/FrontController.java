@@ -22,12 +22,12 @@ public class FrontController extends HttpServlet {
 
 		try {
 
-			String path = request.getServletPath().substring(1);
-			String name = path.replace(".a", "A").replace("/", ".");
-			Action action = (Action) Class.forName(name).getDeclaredConstructor().newInstance();
-
-			String url = "jsp/" + action.execute(request, response);
-
+			String path = request.getServletPath().substring(1);	
+			String name = path.replace(".action", "Action").replace("/", ".");
+			Action action = (Action) Class.forName(name).getDeclaredConstructor().newInstance();	
+			String url = action.execute(request, response);
+			
+			
 			request.getRequestDispatcher(url).forward(request, response);
 
 		} catch (Exception e) {
